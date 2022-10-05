@@ -15,11 +15,11 @@ public class LeverPuzzle : MonoBehaviour
 
     public void LeverPuzzleChecker(bool lever1, bool lever2, bool lever3, bool lever4)
     {
-        //Debug.Log(lever1);
-        //Debug.Log(lever2);
-        //Debug.Log(lever3);
-        //Debug.Log(lever4);
-        if (lever4 == true)
+        Debug.Log(lever1);
+        Debug.Log(lever2);
+        Debug.Log(lever3);
+        Debug.Log(lever4);
+        if (lever4 == true && lever1 ==true)
         {
             Debug.Log("Right sequenze");
             OpenDoor();

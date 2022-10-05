@@ -7,19 +7,20 @@ using UnityEngine.UI;
 public class Torch : MonoBehaviour
 {
     CanLightBraziers lightThemUp;
+    //[SerializeField] ParticleSystem fireParticles;
 
     bool holdingTorch = false;
 
     public void Start()
     {
-        lightThemUp = GetComponent<CanLightBraziers>();
+        lightThemUp = FindObjectOfType<CanLightBraziers>();
     }
 
     public void Update()
     {
         if (holdingTorch == true)
         {
-            lightThemUp.LightUpBrazierIfHoldingTorch();
+            lightThemUp.LightUpBrazierIfHoldingTorch(holdingTorch);
         }
     }
 
@@ -33,6 +34,7 @@ public class Torch : MonoBehaviour
     public void HoldingTheTorch()
     {
         Debug.Log("Holding a torch");
+        //fireParticles.Play();
         holdingTorch = true;
     }
 

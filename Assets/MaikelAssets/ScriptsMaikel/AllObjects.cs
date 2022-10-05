@@ -11,11 +11,6 @@ public class AllObjects : MonoBehaviour
     [SerializeField] Levers lever;
     [SerializeField] int objectType = 0;
 
-    void Start()
-    {
-        
-    }
-
     public void WhatObject()
     {
         switch (objectType)
@@ -25,13 +20,13 @@ public class AllObjects : MonoBehaviour
                 hiddenButton.ButtonPressed();
                 break;
             case 1: //torches
-                torch.WhatTorch();
+                brazier.WhatBrazier();
                 break;
             case 2: //levers
                 lever.WhatLever();
                 break;
             case 3: //braziers
-                brazier.WhatBrazier();
+                torch.WhatTorch();
                 break;
             default:
                 

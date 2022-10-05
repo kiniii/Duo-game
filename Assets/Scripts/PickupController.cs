@@ -28,11 +28,15 @@ public class PickupController : MonoBehaviour
                     PickupObject(hit.transform.gameObject);
                 }
             }
-            else
-            {
-                DropObject();
-            }
+           
         }
+
+        // Drop object on keypress Q
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            DropObject();
+        }
+
         // Move the object around if there is an object equipped
         if (holdingObject != null)
         {
@@ -40,6 +44,8 @@ public class PickupController : MonoBehaviour
         }
     }
 
+
+    // Class to move object around
     void MoveObject()
     {
         if (Vector3.Distance(holdingObject.transform.position, holdArea.position) > 0.1f)
@@ -49,6 +55,8 @@ public class PickupController : MonoBehaviour
         }
     }
 
+   
+    // Class to pick up object
     void PickupObject (GameObject pickObj)
     {
         if (pickObj.GetComponent<Rigidbody>())
@@ -63,6 +71,8 @@ public class PickupController : MonoBehaviour
         }
     }
 
+
+    // Class to drop object
     void DropObject()
     {
             holdingObjectRB.useGravity = true;

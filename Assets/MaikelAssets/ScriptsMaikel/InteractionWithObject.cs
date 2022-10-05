@@ -10,6 +10,7 @@ public class InteractionWithObject : MonoBehaviour
     Transform target;
     AllObjects obj;
     float distanceToTarget = Mathf.Infinity;
+    bool isTextOwner = false; 
 
     //all the objects
 
@@ -31,17 +32,19 @@ public class InteractionWithObject : MonoBehaviour
         if (distanceToTarget <= playerNearby)
         {
             target.GetComponent<InteractText>().PlayerNearObject();
+            isTextOwner = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 obj.GetComponent<AllObjects>().WhatObject();
             }
         }
+
         //if the player gets away from an object
-        if (distanceToTarget >= playerNearby)
+        if (distanceToTarget >= playerNearby && isTextOwner)
         {
             target.GetComponent<InteractText>().PlayerNotNearObject();
+            isTextOwner = false;
         }
-
     }
 
     //seeing the range of the object

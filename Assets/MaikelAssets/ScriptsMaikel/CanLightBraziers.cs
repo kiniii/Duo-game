@@ -14,8 +14,11 @@ public class CanLightBraziers : MonoBehaviour
         }
     }
 
-    public void LightUpBrazierIfHoldingTorch()
+    public void LightUpBrazierIfHoldingTorch(bool holdingTorch)
     {
+        if (holdingTorch)
+        {
         BroadcastMessage("LightBrazier");
+        }
     }
 }

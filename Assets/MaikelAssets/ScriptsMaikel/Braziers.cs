@@ -7,13 +7,21 @@ public class Braziers : MonoBehaviour
 {
     [SerializeField] int brazierNumber = 0;
     [SerializeField] private Material myMaterial;
+    [SerializeField] ParticleSystem fireParticles;
 
-    // temporarily fix for demo prototype
-    bool canLightBrazier = true;
+    bool canLightBrazier = false;
 
     private void Start()
     {
         myMaterial.color = Color.black;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            canLightBrazier = false;
+        }
     }
 
     public void LightBrazier()
@@ -53,6 +61,7 @@ public class Braziers : MonoBehaviour
     private void SetBrazierOnFire()
     {
         Debug.Log("Lit");
-        myMaterial.color = Color.red;
+        //myMaterial.color = Color.red;
+        fireParticles.Play();
     }
 }
