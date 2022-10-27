@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HiddenButton : MonoBehaviour
 {
+    //[SerializeField] ParticleSystem dustParticles;
     OpeningDoors pressedButton;
     bool door1 = false;
 
@@ -23,6 +24,7 @@ public class HiddenButton : MonoBehaviour
     public void OpenDoor()
     {
         //particles
+        //dustParticles.Play();
         //vibration
         //sound
         door1 = true;

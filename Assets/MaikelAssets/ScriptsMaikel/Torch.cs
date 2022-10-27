@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Torch : MonoBehaviour
 {
     CanLightBraziers lightThemUp;
-    //[SerializeField] ParticleSystem fireParticles;
+    [SerializeField] ParticleSystem fireParticles;
 
     bool holdingTorch = false;
 
@@ -27,14 +27,13 @@ public class Torch : MonoBehaviour
     public void WhatTorch()
     {
         HoldingTheTorch();
-        //particles
+        fireParticles.Play();
         //sound
     }
 
     public void HoldingTheTorch()
     {
         Debug.Log("Holding a torch");
-        //fireParticles.Play();
         holdingTorch = true;
     }
 

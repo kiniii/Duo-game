@@ -52,10 +52,8 @@ public class Braziers : MonoBehaviour
                     break;
             }
         }
-
         //particles
         //sound
-
     }
 
     private void SetBrazierOnFire()
