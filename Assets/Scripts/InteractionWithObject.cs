@@ -10,9 +10,7 @@ public class InteractionWithObject : MonoBehaviour
     Transform target;
     AllObjects obj;
     float distanceToTarget = Mathf.Infinity;
-
-    //all the objects
-
+    bool isTextOwner = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,22 +24,23 @@ public class InteractionWithObject : MonoBehaviour
     {
         //looking at the players location
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-
         //if the player is nearby an object
         if (distanceToTarget <= playerNearby)
         {
             target.GetComponent<InteractText>().PlayerNearObject();
-            if (Input.GetKeyDown(KeyCode.E))
+            isTextOwner = true;
+            if (Input.GetButton("joystick button 0"))
             {
                 obj.GetComponent<AllObjects>().WhatObject();
             }
         }
-        //if the player gets away from an object
-        if (distanceToTarget >= playerNearby)
+
+        //if the player is not nearby an object
+        if(distanceToTarget >= playerNearby && isTextOwner)
         {
             target.GetComponent<InteractText>().PlayerNotNearObject();
+            isTextOwner = false;
         }
-
     }
 
     //seeing the range of the object

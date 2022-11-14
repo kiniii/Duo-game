@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3614419091913212147}
   - component: {fileID: 3614419091913212146}
   - component: {fileID: 3614419091913212145}
+  - component: {fileID: 2179383399736738248}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -110,6 +111,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbdb6cdcec554906a938f06de155331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShake: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 8300000, guid: 0b7f72a530fba41268a2b87622028bae, type: 3}
+--- !u!95 &2179383399736738248
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3614419091913212151}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 746dad4a8470c31418bf5557b89d8fb8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3614419092743512796
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364cd676d35674bfbbb8bbaa8e34baea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearby: 2
+  playerNearby: 1.25
 --- !u!114 &3614419092743512794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,4 +263,6 @@ MonoBehaviour:
   hiddenButton: {fileID: 3614419091913212145}
   brazier: {fileID: 0}
   lever: {fileID: 0}
+  plate: {fileID: 0}
+  cube: {fileID: 0}
   objectType: 0

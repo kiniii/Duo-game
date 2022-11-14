@@ -5,20 +5,31 @@ using UnityEngine.UI;
 
 public class HiddenButton : MonoBehaviour
 {
-   
-    public void ButtonPressed()
+    OpeningDoors pressedButton;
+    public CameraShake cameraShake;
+    public AudioSource source;
+    public AudioClip clip;
+
+    bool door1 = false;
+
+    private void Start()
     {
-        //GetComponent<Animator>().SetBool("press", true);
+        pressedButton = FindObjectOfType<OpeningDoors>();
+    }
+
+    public void ButtonPressed()
+    { 
         //sound
+        source.PlayOneShot(clip);
+        //Doing the camerashake and the duration of the shake
+        StartCoroutine(cameraShake.ScreenShake(5f));
         OpenDoor();
     }
 
     private void OpenDoor()
     {
-        //particles
-        //vibration
-        //sound
-        //GetComponent<Animator>().SetBool("openDoor", true);
-        Debug.Log("Opened door");
+        //communicates with the door script
+        door1 = true;
+        pressedButton.checkOpenDoors(door1);
     }
 }

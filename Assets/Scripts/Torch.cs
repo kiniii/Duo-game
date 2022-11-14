@@ -7,38 +7,41 @@ using UnityEngine.UI;
 public class Torch : MonoBehaviour
 {
     CanLightBraziers lightThemUp;
+    Player player;
 
     bool holdingTorch = false;
+    public AudioSource source;
+    public AudioClip clip;
 
     public void Start()
     {
-        lightThemUp = GetComponent<CanLightBraziers>();
+        lightThemUp = FindObjectOfType<CanLightBraziers>();
+        player = FindObjectOfType<Player>();
     }
 
     public void Update()
     {
         if (holdingTorch == true)
         {
-            lightThemUp.LightUpBrazierIfHoldingTorch();
+            lightThemUp.LightUpBrazierIfHoldingTorch(holdingTorch);
         }
     }
 
     public void WhatTorch()
     {
         HoldingTheTorch();
-        //particles
-        //sound
     }
 
     public void HoldingTheTorch()
     {
-        Debug.Log("Holding a torch");
+        player.HoldTorch();
+        source.Play();
         holdingTorch = true;
     }
 
     public void TorchDropped()
     {
-        Debug.Log("Dropped a torch");
+        player.DropTorch();
         holdingTorch = false;
     }
 }

@@ -5,53 +5,46 @@ using UnityEngine.UI;
 
 public class Braziers : MonoBehaviour
 {
-    [SerializeField] int brazierNumber = 0;
-    [SerializeField] private Material myMaterial;
+    [SerializeField] GameObject lightOfBrazier;
+    public AudioSource source;
+    public AudioClip clip;
 
     bool canLightBrazier = false;
 
     private void Start()
     {
-        myMaterial.color = Color.black;
+        lightOfBrazier.SetActive(false);
+    }
+
+    private void Update()
+    {
+        //when the torch is dropped
+        if(Input.GetButton("joystick button 2"))
+        {
+            canLightBrazier = false;
+        }
     }
 
     public void LightBrazier()
     {
+        //knows that the player is holding a torch
         canLightBrazier = true;
     }
 
     public void WhatBrazier()
     {
+        //looks which brazier the player is interacting with
         if (canLightBrazier == true)
         {
-            switch (brazierNumber)
-            {
-                case 0: //brazier 1
-                    SetBrazierOnFire();
-                    break;
-                case 1: //brazier 2
-                    SetBrazierOnFire();
-                    break;
-                case 2: //brazier 3
-                    SetBrazierOnFire();
-                    break;
-                case 3: //brazier 4
-                    SetBrazierOnFire();
-                    break;
-                default:
-
-                    break;
-            }
+            SetBrazierOnFire();
         }
-
-        //particles
         //sound
-
     }
 
     private void SetBrazierOnFire()
     {
-        Debug.Log("Lit");
-        myMaterial.color = Color.red;
+        //plays the sound and the particle effect
+        lightOfBrazier.SetActive(true);
+        source.Play();
     }
 }

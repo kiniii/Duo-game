@@ -16,6 +16,7 @@ public class InteractText : MonoBehaviour
     {
         text.enabled = true;
     }
+
     public void PlayerNotNearObject()
     {
         text.enabled = false;

@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brazierNumber: 0
+  myMaterial: {fileID: 0}
+  fireParticles: {fileID: 0}
 --- !u!1 &8532079619408160466
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364cd676d35674bfbbb8bbaa8e34baea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearby: 2
+  playerNearby: 1.25
 --- !u!114 &8532079619408160460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,4 +242,4 @@ MonoBehaviour:
   hiddenButton: {fileID: 0}
   brazier: {fileID: 8532079619224679004}
   lever: {fileID: 0}
-  objectType: 3
+  objectType: 1

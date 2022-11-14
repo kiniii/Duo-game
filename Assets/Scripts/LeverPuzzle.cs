@@ -1,32 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
+
 public class LeverPuzzle : MonoBehaviour
 {
+    OpeningDoors leverToOpenDoor;
+    bool door2 = false;
+    Levers[] levers;
+    public CameraShake cameraShake;
 
-    public void LeverPuzzleChecker(bool lever1, bool lever2, bool lever3, bool lever4)
+    public void Start()
     {
-        //Debug.Log(lever1);
-        //Debug.Log(lever2);
-        //Debug.Log(lever3);
-        //Debug.Log(lever4);
-        if (lever1 == true)
+        leverToOpenDoor = FindObjectOfType<OpeningDoors>();
+        GetComponentsInChildren<Levers>();
+        levers = GetComponentsInChildren<Levers>();
+    }
+
+    private void Update()
+    {
+        foreach (Levers leverCheck in levers)
         {
-            Debug.Log("Right sequenze");
-            OpenDoor();
-            BroadcastMessage("PuzzleSolved");
+            //Debug.Log(leverCheck.leverNumber + leverCheck.leverState.ToString());
         }
-        else
+        CheckDoorPuzzleLevers();
+    }
+
+    private void CheckDoorPuzzleLevers()
+    {
+        if (door2 == false)
         {
-            return;
+            if (levers[0].leverState == true &&
+                        levers[1].leverState == false &&
+                        levers[2].leverState == false &&
+                        levers[3].leverState == false &&
+                        levers[4].leverState == true &&
+                        levers[5].leverState == true)
+            {
+                StartCoroutine(cameraShake.ScreenShake(6f));
+                OpenDoor();
+            }
         }
-        
     }
 
     private void OpenDoor()
     {
-        Debug.Log("doors opened");
+        door2 = true;
+        leverToOpenDoor.checkOpenDoors2(door2);
     }
 }
